@@ -50,7 +50,7 @@ export default class HeaderComponent extends React.Component<HeaderProps, {}> {
                     <Menu.Item key="3" style={{float: 'right'}}>
                         <Dropdown overlay={userMenu}>
                             <a className="ant-dropdown-link" href="#">
-                            liujians
+                            zbw
                             </a>
                         </Dropdown>
                     </Menu.Item>

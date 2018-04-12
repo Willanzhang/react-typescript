@@ -6,6 +6,7 @@ import {Switch, Route, Redirect} from 'react-router-dom'
 import { Layout } from 'antd';
 import HeaderComponent from './components/head';
 import BreadCrumbComponent from './components/bread';
+import MenuComponent from './components/menu';
 // import HeaderComponent from './components/head';
 import './App.css';
 
@@ -16,6 +17,7 @@ interface Mode {
   collapsed: boolean;
 }
 function isDesktop() {
+  console.log('897878 resize')
   return window.innerWidth > 993;
 }
 // const logo = require('./logo.svg');
@@ -38,6 +40,7 @@ class App extends React.Component<any, Mode> {
       mode: 'inline',
       collapsed: false
     }
+    window.addEventListener('resize', this.onResize);
   }
   toggle = () => {
     let coll = !this.state.collapsed;
@@ -61,8 +64,10 @@ class App extends React.Component<any, Mode> {
         <Sider
           trigger={null}
           collapsible={true}
+          collapsed={this.state.collapsed}
         >
           <div className="logo" />
+          <MenuComponent mode={this.state.mode} />
         </Sider>
         <Layout className="bg-white">
           <HeaderComponent toggle={this.toggle} collapsed={this.state.collapsed} />
