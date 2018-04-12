@@ -5,6 +5,7 @@ import registerServiceWorker from './registerServiceWorker';
 import './index.css';
 import { createStore } from 'redux'
 import { Provider } from 'react-redux'
+import { BrowserRouter as Router} from 'react-router-dom'
 // import reducers from './store/reducers'
 import enthusiasm from './store/reducers/index';
 import { StoreState } from './store/types/index';
@@ -24,7 +25,9 @@ console.log(store.getState())
 console.log(store)
 ReactDOM.render(
   <Provider store={store}>
-    <App/>
+    <Router>
+      <App/>
+    </Router>
   </Provider>,
   // <Hello name="TypeScript" enthusiasmLevel={10} />,
   document.getElementById('root') as HTMLElement

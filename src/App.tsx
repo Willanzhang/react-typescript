@@ -1,20 +1,84 @@
 import * as React from 'react';
+import './css/App.css';
+import { allRoutes } from './routes';
+// import Head from './components/head'
+import {Switch, Route, Redirect} from 'react-router-dom'
+import { Layout } from 'antd';
+import HeaderComponent from './components/head';
+import BreadCrumbComponent from './components/bread';
+// import HeaderComponent from './components/head';
 import './App.css';
 
-const logo = require('./logo.svg');
+const { Content, Sider } = Layout;
 
-class App extends React.Component {
+interface Mode {
+  mode: string;
+  collapsed: boolean;
+}
+function isDesktop() {
+  return window.innerWidth > 993;
+}
+// const logo = require('./logo.svg');
+
+// class App extends React.Component {
+//   render() {
+//     return (
+//       <div className="App">
+//         <Button type="primary">Button</Button>
+//         <Routers/>
+//       </div>
+      
+//     );
+//   }
+// }
+class App extends React.Component<any, Mode> {
+  constructor (props: any) {
+    super(props)
+    this.state = {
+      mode: 'inline',
+      collapsed: false
+    }
+  }
+  toggle = () => {
+    let coll = !this.state.collapsed;
+    this.setState({
+      collapsed: coll,
+      mode: coll ? 'vertical' : 'inline',
+    });
+  }
+  onResize = () => {
+    isDesktop() ? this.setState({
+      collapsed: false,
+      mode: 'inline',
+    }) : this.setState({
+      collapsed: true,
+      mode: 'vertical',
+    });
+  }
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.tsx</code> and save to reload.
-        </p>
-      </div>
+      <Layout className="layout">
+        <Sider
+          trigger={null}
+          collapsible={true}
+        >
+          <div className="logo" />
+        </Sider>
+        <Layout className="bg-white">
+          <HeaderComponent toggle={this.toggle} collapsed={this.state.collapsed} />
+          <Content style={{ background: '#fff', padding: 24, margin: 0, minHeight: '100%' }}>
+            <BreadCrumbComponent />
+            <Switch>
+              {
+                allRoutes.map((item: object, i: number) =>
+                  <Route key={i} {...item} />
+                )
+              }
+              <Redirect from="*" to="/" />
+            </Switch>
+          </Content>
+        </Layout>
+      </Layout>
     );
   }
 }

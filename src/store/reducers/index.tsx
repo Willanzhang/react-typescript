@@ -6,7 +6,7 @@ import { StoreState } from '../types/index'
 import { INCREMENT_ENTHUSIASM, DECREMENT_ENTHUSIASM } from '../constants/index'
 // import { combineReducers } from 'redux'
 
-console.log(EnthusiasmAction, 'EnthusiasmAction9999999')
+// console.log(EnthusiasmAction, 'EnthusiasmAction9999999')
 function enthusiasm(state: StoreState, action: EnthusiasmAction): StoreState {
   switch (action.type) {
     case INCREMENT_ENTHUSIASM:
