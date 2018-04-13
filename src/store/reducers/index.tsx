@@ -1,13 +1,11 @@
 // import { EnthusiasmAction, StateFlag } from '../actions'
 import { EnthusiasmAction, StateFlag, Language } from '../actions'
 import { StoreState } from '../types/index'
-// import { routerReducer } from 'react-router-redux'
-// import { INCREMENT_ENTHUSIASM, DECREMENT_ENTHUSIASM, CHANGE_FLAG } from '../constants/index'
 import { INCREMENT_ENTHUSIASM, DECREMENT_ENTHUSIASM, CHANGE_LANGUAGE, CHANGE_FLAG } from '../constants/index'
 import { combineReducers } from 'redux'
+// 必须给store 的数据设置初始值 defaultState
 import defaultState from '../types/initState'
 
-// console.log(EnthusiasmAction, 'EnthusiasmAction9999999')
 function enthusiasmLevel(state = defaultState.enthusiasmLevel, action: EnthusiasmAction): number {
   switch (action.type) {
     case INCREMENT_ENTHUSIASM:
@@ -32,7 +30,6 @@ function flag(state = defaultState.flag, action: StateFlag): boolean {
   }
   return state
 }
-// function changeLang = (state = de)
 console.log('110')
 // combineReducers<StoreState> 至关重要
 const enthusiasm = combineReducers<StoreState>({
@@ -40,15 +37,5 @@ const enthusiasm = combineReducers<StoreState>({
   flag,
   languageName
 })
-// console.log(changeFlag, '99')
-// const demo = combineReducers({
-//   enthusiasm,
-//   changeFlag
-// })
-// const rootReducer = combineReducers({
-//   enthusiasm,
-//   changeFlag,
-//   routing: routerReducer
-// });
-// console.log(rootReducer, '9898989889')
+
 export default enthusiasm;
