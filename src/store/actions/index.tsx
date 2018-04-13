@@ -16,7 +16,7 @@ export interface ChanageLanguage {
 }
 export type StateFlag = ChanageFlag
 export type Language = ChanageLanguage
-export type EnthusiasmAction = IncrementEnthusiasm | DecrementEnthusiasm | ChanageLanguage
+export type EnthusiasmAction = IncrementEnthusiasm | DecrementEnthusiasm
 
 
 export function incrementEnthusiasm(): IncrementEnthusiasm {

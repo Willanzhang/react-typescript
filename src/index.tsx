@@ -10,19 +10,15 @@ import { BrowserRouter as Router} from 'react-router-dom'
 import enthusiasm from './store/reducers/index';
 import { StoreState } from './store/types/index';
 // import Hello from './components/Hello'
-console.log(enthusiasm, 'enthusiasm')
-const store = createStore<StoreState>(enthusiasm, {
-  enthusiasmLevel: 1,
-  languageName: 'TypeScript',
-  flag: false
-})
+// console.log(enthusiasm, 'enthusiasm')
+const store = createStore<StoreState>(enthusiasm)
 // const store=() => {
 //     return createStore<any>(
 //         enthusiasm
 //     );
 // }
-console.log(store.getState())
-console.log(store)
+console.log(store.getState(), '111999')
+// console.log(store)
 ReactDOM.render(
   <Provider store={store}>
     <Router>

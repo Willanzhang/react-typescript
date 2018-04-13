@@ -20,6 +20,7 @@ class Home extends React.Component<StoreState,{}> {
     console.log(222)
   }
   render() {
+    console.log(this.props, 'this.props+++99')
     let {languageName} = this.props
     return (
       <div className="App">
@@ -30,7 +31,8 @@ class Home extends React.Component<StoreState,{}> {
     );
   }
 }
-function type(state: StoreState) {
+function type(state: any) {
+  console.log(state, '6666666')
   return {
     languageName: state.languageName
   }
