@@ -51,8 +51,8 @@
     "whatwg-fetch": "2.0.3"
   },
   "scripts": {
-    "start": "node scripts/start.js && react-app-rewired start --scripts-version",
-    "build": "node scripts/build.js && react-app-rewired build --scripts-version",
+    "start": "node scripts/start.js && react-app-rewired --scripts-version",
+    "build": "node scripts/build.js && react-app-rewired --scripts-version",
     "test": "react-app-rewired test --env=jsdom --scripts-version"
   },
   "devDependencies": {
