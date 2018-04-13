@@ -9,9 +9,6 @@ class Setting extends React.Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-           菜单
-        </header>
         <h1>    
           菜单
         </h1>

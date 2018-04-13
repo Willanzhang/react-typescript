@@ -7,9 +7,17 @@ export interface DecrementEnthusiasm {
 }
 export interface ChanageFlag {
 	type: constants.CHANGE_FLAG
+
 }
-export type EnthusiasmAction = IncrementEnthusiasm | DecrementEnthusiasm
+
+export interface ChanageLanguage {
+	type: constants.CHANGE_LANGUAGE,
+	languageName: string
+}
 export type StateFlag = ChanageFlag
+export type Language = ChanageLanguage
+export type EnthusiasmAction = IncrementEnthusiasm | DecrementEnthusiasm | ChanageLanguage
+
 
 export function incrementEnthusiasm(): IncrementEnthusiasm {
 	return {
@@ -25,5 +33,12 @@ export function decrementEnthusiasm(): DecrementEnthusiasm {
 export function changeFlagX(): ChanageFlag {
 	return {
 		type: constants.CHANGE_FLAG
+	}
+}
+
+export function changLanguage(lang: string): ChanageLanguage {
+	return {
+		type: constants.CHANGE_LANGUAGE,
+		languageName: lang
 	}
 }

@@ -3,7 +3,7 @@ import { EnthusiasmAction } from '../actions'
 import { StoreState } from '../types/index'
 // import { routerReducer } from 'react-router-redux'
 // import { INCREMENT_ENTHUSIASM, DECREMENT_ENTHUSIASM, CHANGE_FLAG } from '../constants/index'
-import { INCREMENT_ENTHUSIASM, DECREMENT_ENTHUSIASM } from '../constants/index'
+import { INCREMENT_ENTHUSIASM, DECREMENT_ENTHUSIASM, CHANGE_LANGUAGE } from '../constants/index'
 // import { combineReducers } from 'redux'
 
 // console.log(EnthusiasmAction, 'EnthusiasmAction9999999')
@@ -13,6 +13,9 @@ function enthusiasm(state: StoreState, action: EnthusiasmAction): StoreState {
       return { ...state, enthusiasmLevel: state.enthusiasmLevel + 1 }
     case DECREMENT_ENTHUSIASM:
       return { ...state, enthusiasmLevel: Math.max(1, state.enthusiasmLevel - 1) }
+    case CHANGE_LANGUAGE:
+      console.log('ehl',state)
+      return { ...state, languageName:  action.languageName}
   }
   return state
 }
